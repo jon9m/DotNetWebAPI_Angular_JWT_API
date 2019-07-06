@@ -1,0 +1,14 @@
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\bin\Debug\netcoreapp2.2\PtcAPi.deps.json
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\bin\Debug\netcoreapp2.2\PtcAPi.runtimeconfig.json
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\bin\Debug\netcoreapp2.2\PtcAPi.runtimeconfig.dev.json
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\bin\Debug\netcoreapp2.2\PtcAPi.dll
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\bin\Debug\netcoreapp2.2\PtcAPi.pdb
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.csprojAssemblyReference.cache
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.csproj.CoreCompileInputs.cache
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.RazorAssemblyInfo.cache
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.RazorAssemblyInfo.cs
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.AssemblyInfoInputs.cache
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.AssemblyInfo.cs
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.RazorTargetAssemblyInfo.cache
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.dll
+C:\MALAKA\JAVA_PRJ\NodeJS\AngularSecurityJWT\PTC_ANGULAR\PtcAPi\obj\Debug\netcoreapp2.2\PtcAPi.pdb
