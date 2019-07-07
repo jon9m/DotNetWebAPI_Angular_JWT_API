@@ -173,3 +173,18 @@ REFERENCES [Security].[User] ([UserId])
 GO
 ALTER TABLE [Security].[UserClaim] CHECK CONSTRAINT [FK_UserClaim_User]
 GO
+
+----------------------------------------------------------------------------------------
+										JWT
+----------------------------------------------------------------------------------------
+dotnet add package System.IdentityModel.Tokens.Jwt
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
+---------------
+Resolve error - 
+Package 'System.IdentityModel.Tokens' is incompatible with 'all' frameworks in project
+
+dotnet nuget locals all --clear
+dotnet restore --force
+---------------
+
