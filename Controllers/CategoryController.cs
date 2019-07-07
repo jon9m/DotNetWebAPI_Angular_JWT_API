@@ -10,11 +10,12 @@ using PtcApi.Model;
 namespace PtcApi.Controllers
 {
   [Route("api/[controller]")]
+  [Authorize]
   public class CategoryController : BaseApiController
   {
     // GET api/values
     [HttpGet]
-    [Authorize]
+    // [Authorize]
     public IActionResult Get()
     {
       IActionResult ret = null;

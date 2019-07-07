@@ -11,8 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Serialization;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 using PtcApi.Model;
 
 namespace PtcAPi {
@@ -45,6 +45,13 @@ namespace PtcAPi {
                     ClockSkew = TimeSpan.FromMinutes (settings.MinutesToExpiration)
                     };
                 });
+
+            //Add Security policy
+            services.AddAuthorization (configure => {
+                configure.AddPolicy ("CanAccessProducts", p => p.RequireClaim ("CanAccessProducts", "true"));
+                //first 'CanAccessProducts' must match controller policy 
+                //second values must match values in UserClaim table 
+            });
 
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
             services.AddCors ();
