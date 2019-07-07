@@ -14,7 +14,7 @@ namespace PtcApi.Model {
         }
 
         protected string BuildJwtToken (AppUserAuth authUser) {
-            Microsoft.IdentityModel.Tokens.SymmetricSecurityKey key = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes (_settings.Key));
+            Microsoft.IdentityModel.Tokens.SymmetricSecurityKey key = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey (Encoding.UTF8.GetBytes (_settings.Key));
 
             //Create standard JWT claims
             List<Claim> jwtClaims = new List<Claim> ();
@@ -22,10 +22,9 @@ namespace PtcApi.Model {
             jwtClaims.Add (new Claim (JwtRegisteredClaimNames.Jti, Guid.NewGuid ().ToString ()));
 
             //Add custom claims
-            jwtClaims.Add (new Claim ("isAuthenticated", authUser.IsAuthenticated.ToString ().ToLower ()));
-            jwtClaims.Add (new Claim ("canAccessProducts", authUser.CanAccessProducts.ToString ().ToLower ()));
-            jwtClaims.Add (new Claim ("canAddProduct", authUser.CanAddProduct.ToString ().ToLower ()));
-            jwtClaims.Add (new Claim ("canSaveProduct", authUser.CanSaveProduct.ToString ().ToLower ()));
+            foreach (var claim in authUser.Claims) {
+                jwtClaims.Add (new Claim (claim.ClaimType, claim.ClaimValue));
+            }
 
             var token = new JwtSecurityToken (
                 issuer: _settings.Issuer,
@@ -33,7 +32,7 @@ namespace PtcApi.Model {
                 claims: jwtClaims,
                 notBefore: DateTime.UtcNow,
                 expires: DateTime.UtcNow.AddMinutes (_settings.MinutesToExpiration),
-                signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(key, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256)
+                signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials (key, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256)
             );
 
             return new JwtSecurityTokenHandler ().WriteToken (token);
@@ -72,27 +71,14 @@ namespace PtcApi.Model {
 
         public AppUserAuth BuildUserAuthObject (AppUser authUser) {
             AppUserAuth ret = new AppUserAuth ();
-            List<AppUserClaim> claims = new List<AppUserClaim> ();
 
             ret.UserName = authUser.UserName;
             ret.IsAuthenticated = true;
             ret.BearerToken = new Guid ().ToString ();
-
-            claims = GetUserClaims (authUser);
-
-            foreach (AppUserClaim claim in claims) {
-                try {
-                    typeof (AppUserAuth).GetProperty (claim.ClaimType)
-                        .SetValue (ret, Convert.ToBoolean (claim.ClaimValue), null);
-                } catch (Exception ex) {
-
-                }
-            }
-
-            ret.BearerToken = BuildJwtToken(ret);
+            ret.Claims = GetUserClaims (authUser);
+            ret.BearerToken = BuildJwtToken (ret);
 
             return ret;
-
         }
     }
 }
